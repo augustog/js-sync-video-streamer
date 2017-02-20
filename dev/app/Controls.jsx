@@ -6,6 +6,4 @@ class Pause extends Component {}
 
 class FullScreen extends Component {}
 
-export Play;
-export Pause;
-export Fullscreen;
+export {Play, Pause, FullScreen};
