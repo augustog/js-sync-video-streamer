@@ -11,6 +11,7 @@ const states = {
 class Player extends Component {
 
     constructor(props){
+        super(props);
         this.state = {
             src: props.src,
             state: states.IDLE
