@@ -8,14 +8,13 @@ import { shallow, mount, render } from 'enzyme';
 
 import App from '../App.jsx';
 import Player from '../Player.jsx';
-import Video from '../Video.jsx';
 import {Play, Pause, FullScreen} from '../Controls.jsx';
 import {VideoSourceSelectionPane, ConnectionPane} from '../PeerConnection.jsx';
 import CollapsibleSidePanel from '../CollapsibleSidePanel.jsx';
 
 describe('<App />', () => {
-    it('Should render a Video component', ()=>{
-        expect(shallow(<App />).contains(<Video />)).toBe(true);
+    it('Should render a Player component', ()=>{
+        expect(shallow(<App />).contains(<Player />)).toBe(true);
     });
     it('Should render a set of controls (play, pause, fullscreen)', ()=>{
         expect(shallow(<App />).contains(<Play />)).toBe(true);
