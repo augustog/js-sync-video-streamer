@@ -1,17 +1,18 @@
 import React from 'react';
 import {Component} from 'react';
 //import {Promise} from 'react-promise';
+import { DefaultPlayer as Video } from 'react-html5video';
+import 'react-html5video/dist/styles.css';
 
-
-import {Play, Pause, FullScreen} from './Controls.jsx';
-
+import Snackbar from 'material-ui/Snackbar';
 
 
 const states = {
-    PLAYING : 'PLAYING',
-    BUFFERING: 'BUFFERING',
-    PAUSED: 'PAUSED',
-    IDLE: 'IDLE'
+    PLAYING : 5,
+    PAUSED: 4,
+    READY: 3,
+    BUFFERING: 0,
+    IDLE: -1,
 }
 
 class Player extends Component {
@@ -28,38 +29,54 @@ class Player extends Component {
         }
     }
 
-    play(data){
-        //TODO: Implement promise-based async method
-        this.video.play();
-        this.state = states.PLAYING;
+    setState(state){
+        this.state = state;
+        //TODO: Broadcast state change to peer
     }
 
-    pause(data){
-        //TODO: Implement promise-based async method
-        this.video.pause();
-        this.state = states.PAUSED;
+    broadcastToPeers(data){
+        //TODO: Implement
     }
 
-    fullscreen(data){
-        throw "Not implemented yet"; //TODO: Implement fullscreen control
-    }
+    //State-changing hooks
+    play = (data) => this.setState(states.PLAYING);
+    pause = (data) => this.setState(states.PAUSED);
+    canPlayThrough = (data) => this.setState(states.READY);
+    buffering = (data) => this.setState(states.BUFFERING);
+
+    //Broadcast hooks
+    progress = (data) => this.broadCastToPeers('progress', data);
+    seek = (data) => this.broadCastToPeers('seeked', data);
 
     render(){
 
         return (
             <div className="player-container">
-                <video id="video"className="video" ref={(video)=>{this.video = video;}}>
+                <Video
+                    id="video"
+                    className="video"
+                    ref={(video)=>{this.video = video;}}
+                    controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
+                    onPlay={this.play}
+                    onPause={this.pause}
+                    onSeeked={this.seek}
+                    onProgress={this.progress}
+                    onCanPlayThrough={this.canPlayThrough}
+                    onWaiting={this.buffering}
+                    
+                >
                     <source src={this.state.src} type={"video/"+this.state.srcType} />
-                    Your browser does not support video tags, get serious dude.
-                </video>
-
-                <Play onActivate={this.play}/>
-                <Pause onActivate={this.pause}/>
-                <FullScreen onActivate={this.fullscreen}/>
+                    Your browser does not support video tags, so sad :(
+                </Video>
+                <Snackbar
+                    open={true}
+                    message={"State: "+this.state}
+                />
             </div>
         );
 
     }
 }
+
 
 export default Player;
