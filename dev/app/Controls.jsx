@@ -1,9 +1,11 @@
 import {Component} from 'react'; 
 
-class Play extends Component {}
+class _Control extends Component {}
 
-class Pause extends Component {}
+class Play extends _Control {}
 
-class FullScreen extends Component {}
+class Pause extends _Control {}
 
-export {Play, Pause, FullScreen};
+class FullScreen extends _Control {}
+
+export {Play, Pause, FullScreen, _Control};

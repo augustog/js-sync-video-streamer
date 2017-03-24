@@ -23,6 +23,10 @@ describe('<Player />', () => {
         expect(wrapper.find('video')).toHaveLength(1);
         expect(wrapper.find('video').find('source').props().src).toEqual("./test.mp4");
     })
+    /*
+    
+    TODO: Test controls
+    
     it('Should render a set of controls (play, pause, fullscreen).', ()=> {
         //TODO: Figure out how to test this
         expect(wrapper.find(Play)).toHaveLength(1);
@@ -30,16 +34,16 @@ describe('<Player />', () => {
         expect(wrapper.find(FullScreen)).toHaveLength(1);
 
     });
-    
-    it('Should change to "playing" state when Play is activated', ()=>{
+    */
+    it('Should change to "playing" state when video is playing', ()=>{
         expect(true).toBe(false); //TODO: Implement test
     });
 
-    it('Should change to "paused" state when Pause is activated', ()=>{
+    it('Should change to "paused" state when video is paused', ()=>{
         expect(true).toBe(false); //TODO: Implement test
     });
 
-    it('Should change to "buffering" state when Video is buffering', ()=>{
+    it('Should change to "buffering" state when video is buffering', ()=>{
         expect(true).toBe(false); //TODO: Implement test
     });
     

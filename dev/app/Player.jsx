@@ -70,7 +70,7 @@ class Player extends Component {
                 </Video>
                 <Snackbar
                     open={true}
-                    message={"State: "+this.state}
+                    message={"State: "+this.state}web
                 />
             </div>
         );
