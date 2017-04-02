@@ -9,9 +9,9 @@ import {Component} from 'react'
 //import "node_modules/video-react/dist/video-react.css"
 import { Player } from 'video-react'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
+import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeProvider'
+import getMuiTheme from '../../../node_modules/material-ui/styles/getMuiTheme'
+import darkBaseTheme from '../../../node_modules/material-ui/styles/baseThemes/darkBaseTheme'
 
 import Drawer from 'material-ui/Drawer'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -19,15 +19,15 @@ import Slider from 'material-ui/Slider'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import Divider from 'material-ui/Divider'
 import TextField from 'material-ui/TextField'
-import HardwareCast from 'material-ui/svg-icons/hardware/cast'
-import Person from 'material-ui/svg-icons/social/person'
+import HardwareCast from '../../../node_modules/material-ui/svg-icons/hardware/cast'
+import Person from '../../../node_modules/material-ui/svg-icons/social/person'
 import Chip from 'material-ui/Chip'
 import Avatar from 'material-ui/Avatar'
 
-import PeerSelectionPane from './PeerSelectionPane.jsx'
-import VideoSelectionPane from './VideoSelectionPane.jsx'
-import VideoControls from './VideoControls.jsx'
-import {SpacingBlock} from './LayoutComponents.jsx'
+import PeerSelectionPane from './rtc/PeerSelectionPane.jsx'
+import VideoSelectionPane from './videoControls/VideoSelectionPane.jsx'
+import VideoControls from './videoControls/VideoControls.jsx'
+import {SpacingBlock} from './../components/LayoutComponents.jsx'
 
 
 const paddedBoxStyle = {

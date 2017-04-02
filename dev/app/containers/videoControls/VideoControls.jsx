@@ -2,7 +2,7 @@ import React from 'react'
 import {Component} from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import Slider from 'material-ui/Slider'
-import {SpacingBlock} from './LayoutComponents.jsx'
+import {SpacingBlock} from './../../components/LayoutComponents.jsx'
 
 export default class VideoControls extends Component {
 
