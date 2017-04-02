@@ -6,10 +6,9 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
 
-import App from '../App.jsx';
+import App from '../Layout.jsx';
 import Player from '../Player.jsx';
 import {VideoSourceSelectionPane, ConnectionPane} from '../PeerConnection.jsx';
-import CollapsibleSidePanel from '../CollapsibleSidePanel.jsx';
 
 describe('<App />', () => {
     it('Should render a Player component', ()=>{

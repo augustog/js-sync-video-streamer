@@ -1,32 +1,18 @@
 /**
- * Created by augusto on 18/2/17.
+ * Created by augusto on 4/3/17.
  */
 
 import React from 'react';
+import ReactDOM from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
-import {Component} from 'react';
+import App from './Layout.jsx';
 
-import Player from './Player.jsx';
-import {VideoSourceSelectionPane, ConnectionPane} from './PeerConnection.jsx';
-import CollapsibleSidePanel from './CollapsibleSidePanel.jsx';
+const app = (
+    <App />
+);
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-class App extends Component {
-
-    render() {
-        return (
-            <MuiThemeProvider>
-                <div id="app-container">
-                    <Player />
-                    <CollapsibleSidePanel id="settings">
-                        <VideoSourceSelectionPane />
-                        <ConnectionPane />
-                    </CollapsibleSidePanel>
-                </div>
-            </MuiThemeProvider>
-        );
-    }
-}
-
-export default App;
+ReactDOM.render(app, document.getElementById('app'));
