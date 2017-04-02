@@ -26,7 +26,8 @@ import Avatar from 'material-ui/Avatar'
 
 import PeerSelectionPane from './PeerSelectionPane.jsx'
 import VideoSelectionPane from './VideoSelectionPane.jsx'
-
+import VideoControls from './VideoControls.jsx'
+import {SpacingBlock} from './LayoutComponents.jsx'
 
 
 const paddedBoxStyle = {
@@ -34,24 +35,6 @@ const paddedBoxStyle = {
 }
 
 const muiTheme = getMuiTheme(darkBaseTheme);
-
-class SpacingBlock extends Component {
-
-    constructor(props){
-        super(props);
-        this.width = "20px";
-
-        if (props.width)
-            this.width = props.width+"px";
-
-    }
-
-    render(){
-        return (
-            <div style={{width: this.width, display: "inline-block"}}></div>
-        );
-    }
-}
 
 class AppLayout extends Component {
 
@@ -122,22 +105,12 @@ class AppLayout extends Component {
 
                         <SpacingBlock />
 
-                        <RaisedButton
-                            label="Play/Pause"
-                        ></RaisedButton>
+                        <VideoControls
+                            onPlayPauseToggle={() => {console.log('[UI] PlayPause')}}
+                            onFullscreenToggle={() => {console.log('[UI] Fullscreen')}}
+                            onSeek={(e) => {console.log('[UI] Seek' + e);}}
+                        />
 
-                        <SpacingBlock />
-
-                        <div style={{width:'60vw', height:'40px', display:'inline-block'}}>
-                            <Slider></Slider>
-                        </div>
-
-                        <SpacingBlock />
-
-                        <RaisedButton
-                            label="Full Screen"
-                        >
-                        </RaisedButton>
                     </div>
                 </div>
             </MuiThemeProvider>
