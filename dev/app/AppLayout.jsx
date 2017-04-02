@@ -6,7 +6,8 @@ import React from 'react'
 
 import {Component} from 'react'
 
-import Player from './Player.jsx'
+//import "node_modules/video-react/dist/video-react.css"
+import { Player } from 'video-react'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -15,7 +16,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import Drawer from 'material-ui/Drawer'
 import RaisedButton from 'material-ui/RaisedButton'
 import Slider from 'material-ui/Slider'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import Divider from 'material-ui/Divider'
 import TextField from 'material-ui/TextField'
 import HardwareCast from 'material-ui/svg-icons/hardware/cast'
@@ -23,12 +24,14 @@ import Person from 'material-ui/svg-icons/social/person'
 import Chip from 'material-ui/Chip'
 import Avatar from 'material-ui/Avatar'
 
-import { Layout, LayoutSplitter } from 'react-flex-layout'
+import PeerSelectionPane from './PeerSelectionPane.jsx'
+import VideoSelectionPane from './VideoSelectionPane.jsx'
+
+
 
 const paddedBoxStyle = {
     padding: '20px 20px 20px 20px'
 }
-
 
 const muiTheme = getMuiTheme(darkBaseTheme);
 
@@ -74,40 +77,15 @@ class AppLayout extends Component {
                         style={paddedBoxStyle}
                     >
                         <div style={{height:"100px"}}></div>
-                        <Card>
-                            <CardHeader
-                                title="Video Selection"
-                                subtitle="Select the source of the video you want to stream"
-                                avatar={<HardwareCast />}
-                            />
-                            <CardActions>
-                                <TextField
-                                    hintText="URL of Streaming Source"
-                                />
-                                <RaisedButton
-                                    label = "Update"
-                                />
-                            </CardActions>
-                        </Card>
+                        <VideoSelectionPane
+                            onVideoUpdate = {(data) => {console.log('[UI] Attempted video source update to ' + data)}}
+                        />
                         <div style={{height:"100px"}}></div>
-                        <Card>
-                            <CardHeader
-                                title="Peer Selection"
-                                subtitle="Select who to share this with"
-                                avatar={<Person />}
-                            />
-                            <CardActions>
-                                <TextField
-                                    hintText="UID of User"
-                                />
-                                <RaisedButton
-                                    label="Connect"
-                                />
-                                <RaisedButton
-                                    label="Disconnect"
-                                />
-                            </CardActions>
-                        </Card>
+                        
+                        <PeerSelectionPane
+                            onUserConnect = {(data) => {console.log('[UI] Attempted connection with' + data)}}
+                            onUserDisconnect = {(data) => {console.log('[UI] Attempted disconnection')}}
+                        />
 
 
                         <RaisedButton
