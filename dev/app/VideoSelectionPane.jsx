@@ -16,7 +16,6 @@ export default class VideoSelectionPane extends Component {
     }
 
     handleTouchTap(action){
-        console.log('[UI-VideoSelectionPane] TouchTap event');
         switch(action){
             case 'SELECT': {
                 this.props.onVideoUpdate(this.state.VideoURL);

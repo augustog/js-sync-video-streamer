@@ -17,7 +17,6 @@ export default class VideoSelectionPane extends Component {
     }
 
     handleTouchTap(action){
-        console.log('[UI-PeerSelectionPane] TouchTap event');
         switch(action){
             case 'CONNECT': {
                 this.props.onUserConnect(this.state.UID);
