@@ -3,7 +3,7 @@ import { Component } from 'react'
 import { Card, CardHeader, CardActions } from 'material-ui/Card'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import HardwareCast from '../../../../node_modules/material-ui/svg-icons/hardware/cast'
+import HardwareCast from '../../../node_modules/material-ui/svg-icons/hardware/cast'
 
 export default class VideoSelectionPane extends Component {
 
